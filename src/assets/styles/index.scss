@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@mixin flexBox($justify, $alignment){
+  display: flex;
+  justify-content: $justify;
+  align-items: $alignment;
+}
+
+$primary: #171717;
+$secondary: #444444;
+$accent1: #DA0037;
+$accent2: #EDEDED;
+
+
+* {
+  max-width: 1280px;
+  margin: 0;
+  background-color: $primary;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  color: #fff;
+}
+
+.main{
+  margin: 0rem 10rem;
+}
+
+
+
+.hero{
+  height: 100vh;
+  width: 100vw;
+  @include flexBox(center, center);
+
+  .box{
+    box-sizing: border-box;
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+    @include flexBox(center, center);
+
+    //background-color: #DA0037;
+
+    .content-avatar{
+      height: 100%;
+      width: 50%;
+      @include flexBox(center, center);
+
+      //background-color: #444444;
+      .avatar{
+        height: 260px;
+        width: 260px;
+        @include flexBox(center, center);
+        overflow: hidden;
+        border-radius: 50%;
+
+        img{
+          width: auto;
+          height: 270px;
+        }
+      }
+    }
+
+    
+    .content{
+      height: 80%;
+      width: 80%;
+      @include flexBox(space-between, flex-start);
+      flex-direction: column;
+      padding: 20px;
+      
+      .dashed{
+        border-top: 4px solid $accent1;
+        width: 10%;
+      }
+
+      h1{
+        font-size: 60px;
+        font-weight: 700;
+        background-color: inherit;
+      }
+      
+      p{
+        text-align: justify;
+        background-color: inherit;
+        font-size: 15px;
+      }
+
+      .button-links{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 1em;
+        @include flexBox(space-between, center);
+       
+
+        .social-wrapper{
+          width: auto;
+          height: 100%;
+          @include flexBox(start, center);
+
+          i{
+            margin-right: 1rem;
+            font-size: 25px;
+          }
+        }
+        .download-btn{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          background-color: inherit;
+        }
+        button{
+          background-color: $accent1;
+          cursor: pointer;
+          padding: 15px 30px;
+          border-radius: 3em;
+          font-size: 14px;
+          border: none;
+  
+        }
+      }
+      
+    }
+
+  }
+ 
+}
+
