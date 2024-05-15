@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+@mixin sectionBox($padding){
+  height: 100vh;
+  width: 100vw;
+  padding: $padding;
+}
 @mixin flexBox($justify, $alignment){
   display: flex;
   justify-content: $justify;
@@ -28,8 +33,7 @@ $accent2: #EDEDED;
 
 
 .hero{
-  height: 100vh;
-  width: 100vw;
+  @include sectionBox(1rem);
   @include flexBox(center, center);
 
   .box{
@@ -54,6 +58,7 @@ $accent2: #EDEDED;
         @include flexBox(center, center);
         overflow: hidden;
         border-radius: 50%;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
 
         img{
           width: auto;
@@ -78,13 +83,21 @@ $accent2: #EDEDED;
       h1{
         font-size: 60px;
         font-weight: 700;
-        background-color: inherit;
+        
       }
       
       p{
+        font-family: 'Montserrat';
+        font-weight: 400;
         text-align: justify;
         background-color: inherit;
         font-size: 15px;
+      }
+
+      strong{
+        color: #DA0037;
+        text-transform: uppercase;
+
       }
 
       .button-links{
@@ -102,6 +115,7 @@ $accent2: #EDEDED;
           i{
             margin-right: 1rem;
             font-size: 25px;
+            cursor: pointer;
           }
         }
         .download-btn{
@@ -109,16 +123,28 @@ $accent2: #EDEDED;
           display: flex;
           justify-content: flex-end;
           background-color: inherit;
+          
+          a{
+            background-color: $accent1;
+            cursor: pointer;
+            padding: 15px 30px;
+            border-radius: 3em;
+            font-size: 14px;
+            border: none;
+            transition: background-color 1s;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); 
+            font-family: 'Montserrat';
+            font-weight: 200;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            text-decoration: none;
+          }
+          a:hover{
+            background-color: #444444;
+            box-shadow: 0px 10px 15px rgba(218, 0, 55, 0.2); 
+          }
         }
-        button{
-          background-color: $accent1;
-          cursor: pointer;
-          padding: 15px 30px;
-          border-radius: 3em;
-          font-size: 14px;
-          border: none;
-  
-        }
+        
       }
       
     }
@@ -127,3 +153,82 @@ $accent2: #EDEDED;
  
 }
 
+
+
+.projects{
+  width: 100vw;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 200px 1fr; /* Adjust the height of each row as needed */
+  margin: 0;
+  list-style: none;
+
+  
+  .title-page{
+    @include flexBox(center, center);
+    
+    h1{
+      color: #fff;
+      background-color: inherit;
+      font-size: 40px;
+      letter-spacing: 3px;
+    }
+
+  }
+ 
+
+  .wrapper{
+    box-sizing: border-box;
+    @include flexBox(flex-start, center);
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+
+    .box{
+      padding: 2rem;
+      width: 60%;
+      @include flexBox(center, flex-start);
+      flex-direction: column;
+      margin-top: 15px;
+
+      h2, p{
+        margin-bottom: 20px;
+        background-color: inherit;
+        color: #fff;
+      }
+      p{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .logos{
+          background-color: inherit;
+          margin-bottom: 20px;
+          i{
+            margin-right: 1rem;
+            font-size: 25px;
+          }
+      }
+      .link{
+        background-color: inherit;
+        a{
+          background-color: inherit;
+          color: #DA0037;
+        }
+      }
+      
+    }
+  }
+
+}
+
+
+
+.footer{
+  width: 100vw;
+  @include flexBox(center, center);
+  padding: 1rem;
+  
+  p{
+    background-color: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
